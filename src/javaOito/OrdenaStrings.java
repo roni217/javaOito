@@ -10,12 +10,12 @@ public class OrdenaStrings {
 		List<String> palavras = new ArrayList<String>();
 		populaListaPalavras(palavras);
 		System.out.println(palavras);
-		
-		palavras.sort((s1, s2) -> {
-		    return Integer.compare(s1.length(), s2.length());
-		});
+
+		palavras.sort(Comparator.comparing(s -> s.length()));
 
 		palavras.forEach((String s) -> System.out.println(s));
+		System.out.println("\nOu\n");
+		palavras.forEach(System.out::println);
 		
 	}
 
@@ -27,10 +27,8 @@ public class OrdenaStrings {
 	}
 
 	private static void populaListaPalavras(List<String> palavras) {
-		palavras.add("palavra 01");
-		palavras.add("palavra 02");
-		palavras.add("Balavra 03");
-		palavras.add("palavra 05");
-		palavras.add("palavra04");
+		palavras.add("palavra media");
+		palavras.add("palavra bem maior");
+		palavras.add("Balavra p");
 	}
 }
