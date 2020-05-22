@@ -13,24 +13,23 @@ public class OrdenaStrings {
 		
 		Comparator<String> comparador = new ComparadorPorTamanho();
 		
-		//ordemaPalavrasAnteriorJavaOito(palavras, comparador);
-				
-		/*
-		 * metodo default foi adicionado no jaba 8
-		 *  
-		 * */
 		palavras.sort(comparador); 
 		System.out.println(palavras);
 
-		Consumer <String> consumidor = new ImprimeNaLinha();
-		palavras.forEach(consumidor);
+		palavras.forEach(new Consumer<String>() {
+			@Override
+			public void accept(String s) {
+				System.out.println(s);	
+			}
+		});
 		
 	}
 
+	@SuppressWarnings("unused")
 	private static void ordemaPalavrasAnteriorJavaOito(List<String> palavras, Comparator<String> comparador) {
-		Collections.sort(palavras); // Comparador por ordem alfabetica levando
+		Collections.sort(palavras);
 		System.out.println(palavras);
-		Collections.sort(palavras, comparador); // Comparador por ordem alfabetica levando
+		Collections.sort(palavras, comparador);
 	}
 
 	private static void populaListaPalavras(List<String> palavras) {
@@ -53,11 +52,4 @@ class ComparadorPorTamanho implements Comparator<String>{
 		return 0;
 	}
 }
-class ImprimeNaLinha implements Consumer<String>{
 
-	@Override
-	public void accept(String s) {
-		System.out.println(s);
-	}
-	
-}
